@@ -34,6 +34,14 @@ docker run -it -e NVIDIA_VISIBLE_DEVICES=0 --gpus "device=0" --name trt-cookbook
 nvcr.io/nvidia/pytorch:23.04-py3 /bin/bash
 ```
 
+```shell
+docker rm trt-cookbook
+docker run -it -e NVIDIA_VISIBLE_DEVICES=0 --gpus "device=0" --name trt-cookbook \
+--shm-size 16G --ulimit memlock=-1 --ulimit stack=67108864 \
+-v ~/trt-samples-for-hackathon-cn/:/work \
+trt-cookbook:v1 /bin/bash
+```
+
 + Inside thecontainer, go to directory of cookbook firstly
 
 ```shell
